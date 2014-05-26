@@ -18,10 +18,6 @@ public class PlayerPhysics : MonoBehaviour {
 		var rightBorder = Camera.main.ViewportToWorldPoint (new Vector3 (1, 0, distance)).x - (playerSize.x/2);
 
 		// Here the position of the player is clamped into the boundaries
-		transform.position = (new Vector3 (
-			Mathf.Clamp (transform.position.x, leftBorder, rightBorder),
-			transform.position.y,
-			transform.position.z)
-		);
+		transform.position = (new Vector3 (Mathf.Clamp (transform.position.x, leftBorder, rightBorder), transform.position.y, transform.position.z));
 	}
 }

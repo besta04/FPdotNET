@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour {
 	public float acceleration;
 	// speed limit
 	public float maxSpeed;
+	// speed to move downwards
+	public float runningSpeed;
 
 	// screen middle x
 	private float midX;
@@ -21,12 +23,14 @@ public class PlayerController : MonoBehaviour {
 		plPhysics = GetComponent<PlayerPhysics> ();
 		midX = Screen.width / 2;
 		speed = 0;
-		acceleration = 0.01f;
-		maxSpeed = 0.2f;
+		acceleration = 0.1f;
+		maxSpeed = 0.3f;
+		runningSpeed = 0.02f;
 	}
 
 	void Update()
 	{
+#if UNITY_EDITOR
 		// input mouse
 		if( Input.GetMouseButton(0) || Input.GetMouseButtonDown(0) )
 		{
@@ -42,7 +46,6 @@ public class PlayerController : MonoBehaviour {
 			{
 				speed += acceleration;
 			}
-			//nextSpeed = Input.GetAxisRaw ("Horizontal") * speed;
 		}
 		else
 		{
@@ -51,9 +54,58 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		// max speed check
-		if( speed > maxSpeed ) speed = maxSpeed;
-		else if( speed < -maxSpeed ) speed = -maxSpeed;
+		if( speed > maxSpeed )
+		{
+			speed = maxSpeed;
+		}
+		else if( speed < -maxSpeed )
+		{
+			speed = -maxSpeed;
+		}
 
+		// move
+		plPhysics.MoveAmount (new Vector2(speed,-runningSpeed));
+#endif
+
+		// input touchscreen
+		if(Input.touchCount > 0)
+		{
+			// touch count checking
+			for(var i = 0; i < Input.touchCount; ++i)
+			{
+				// get the last input touch
+				Touch touch = Input.GetTouch(i);
+				if(touch.phase == TouchPhase.Began)
+				{
+					// kiri
+					if(touch.position.x < midX)
+					{
+						speed -= acceleration;
+					}
+					// kanan
+					else
+					{
+						speed += acceleration;
+					}
+				}
+			}
+		}
+		else
+		{
+			// reset speed
+			speed = 0;
+		}
+
+		// max speed check
+		if( speed > maxSpeed )
+		{
+			speed = maxSpeed;
+		}
+		else if( speed < -maxSpeed )
+		{
+			speed = -maxSpeed;
+		}
+		
 		// move
 		plPhysics.MoveAmount (new Vector2(speed,0));
 	}

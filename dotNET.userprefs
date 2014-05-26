@@ -1,12 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PlayerPhysics.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\GameCamera.cs">
     <Files>
-      <File FileName="Assets\ButtonLeft.cs" Line="1" Column="1" />
-      <File FileName="Assets\PlayerController.cs" Line="58" Column="3" />
-      <File FileName="Assets\PlayerPhysics.cs" Line="25" Column="5" />
-      <File FileName="Assets\TouchInput.cs" Line="55" Column="26" />
-      <File FileName="Assets\ButtonRight.cs" Line="24" Column="29" />
+      <File FileName="Assets\PlayerController.cs" Line="1" Column="1" />
+      <File FileName="Assets\GameCamera.cs" Line="11" Column="114" />
+      <File FileName="Assets\PlayerPhysics.cs" Line="21" Column="144" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
