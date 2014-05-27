@@ -19,5 +19,7 @@ public class PlayerPhysics : MonoBehaviour {
 
 		// Here the position of the player is clamped into the boundaries
 		transform.position = (new Vector3 (Mathf.Clamp (transform.position.x, leftBorder, rightBorder), transform.position.y, transform.position.z));
+
+		// buat fungsi kalo nabrak, panggil method spawn
 	}
 }
