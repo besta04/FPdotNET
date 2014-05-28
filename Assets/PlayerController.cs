@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour {
 	public float maxSpeed;
 	// speed to move downwards
 	public float runningSpeed;
-
 	// screen middle x
 	private float midX;
 
