@@ -16,9 +16,14 @@ public class PlayerPhysics : MonoBehaviour {
 		
 		var leftBorder = Camera.main.ViewportToWorldPoint (new Vector3 (0, 0, distance)).x + (playerSize.x/2);
 		var rightBorder = Camera.main.ViewportToWorldPoint (new Vector3 (1, 0, distance)).x - (playerSize.x/2);
+		var topBorder = Camera.main.ViewportToWorldPoint(new Vector3(0,0,distance)).y + playerSize.y/2;
+		var bottomBorder = Camera.main.ViewportToWorldPoint(new Vector3(0,1,distance)).y - playerSize.y/2;
+
 
 		// Here the position of the player is clamped into the boundaries
-		transform.position = (new Vector3 (Mathf.Clamp (transform.position.x, leftBorder, rightBorder), transform.position.y, transform.position.z));
+		transform.position = (new Vector3 (Mathf.Clamp (transform.position.x, leftBorder, rightBorder), 
+		                                   Mathf.Clamp(transform.position.y, topBorder, bottomBorder),
+		                                   transform.position.z));
 
 		// buat fungsi kalo nabrak, panggil method spawn
 	}

@@ -10,8 +10,6 @@ public class PlayerController : MonoBehaviour {
 	public float acceleration;
 	// speed limit
 	public float maxSpeed;
-	// speed to move downwards
-	public float runningSpeed;
 	// screen middle x
 	private float midX;
 
@@ -24,12 +22,10 @@ public class PlayerController : MonoBehaviour {
 		speed = 0;
 		acceleration = 0.1f;
 		maxSpeed = 0.3f;
-		runningSpeed = 0.02f;
 	}
 
 	void Update()
 	{
-#if UNITY_EDITOR
 		// input mouse
 		if( Input.GetMouseButton(0) || Input.GetMouseButtonDown(0) )
 		{
@@ -63,9 +59,9 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		// move
-		plPhysics.MoveAmount (new Vector2(speed,-runningSpeed));
-#endif
+		plPhysics.MoveAmount (new Vector2(speed,0));
 
+		/*
 		// input touchscreen
 		if(Input.touchCount > 0)
 		{
@@ -107,5 +103,11 @@ public class PlayerController : MonoBehaviour {
 		
 		// move
 		plPhysics.MoveAmount (new Vector2(speed,0));
+		*/
+	}
+	
+	void OnCollisionEnter2D(Collision2D other)
+	{
+	//	Destroy (this.gameObject);
 	}
 }

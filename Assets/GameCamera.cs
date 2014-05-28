@@ -9,6 +9,6 @@ public class GameCamera : MonoBehaviour {
 	void Update ()
 	{
 		// yang ini buat mindahin posisi kamera agar ngikutin player terus, cuma 4.160129f seharusnya diglobal variabel
-		transform.position = new Vector3(0, target.position.y - 4.160129f, transform.position.z);
+		//transform.position = new Vector3(0, target.position.y - 4.160129f, transform.position.z);
 	}
 }

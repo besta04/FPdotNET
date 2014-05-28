@@ -5,13 +5,24 @@ public class GameManager : MonoBehaviour {
 
 	private GameCamera camera;
 	// untuk akses atribut player, didrag aja lewat unitynya
-	public GameObject player;
+	private GameObject player;
+
+	// speed scrolling speed
+	private static float scrollSpeed;
+
+	public static float getScrollSpeed()
+	{
+		return scrollSpeed;
+	}
 
 	// Use this for initialization
 	void Start ()
 	{
+		scrollSpeed = 0.2f;
+
 		camera = GetComponent<GameCamera> ();
 		// call fungsi instantiate
+
 	}
 	
 	// Update is called once per frame
