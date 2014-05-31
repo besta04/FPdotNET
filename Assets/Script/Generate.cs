@@ -18,7 +18,9 @@ public class Generate : MonoBehaviour {
 
 	void CreateObstacle()
 	{
-		Instantiate (capsule, new Vector3 (1.586072f, posY, 11), Quaternion.identity);
+		float rand = Random.Range(-2.5f,2.5f);
+		var instantiated = Instantiate (capsule, new Vector3 (rand, posY, 11), Quaternion.identity) as GameObject;
+		instantiated.transform.localScale = new Vector3(1,1,11);
 		posY -= 10;
 	}
 }
