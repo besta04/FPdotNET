@@ -13,7 +13,13 @@ public class PlayerController : MonoBehaviour {
 	// screen middle x
 	private float midX;
 
+	private bool messagePopup;
+
+	public Texture2D textureToDisplay;
+
 	private PlayerPhysics plPhysics;
+
+	public Generate gen;
 
 	void Start ()
 	{
@@ -108,6 +114,23 @@ public class PlayerController : MonoBehaviour {
 	
 	void OnCollisionEnter2D(Collision2D other)
 	{
-	//	Destroy (this.gameObject);
+		//Destroy (this.gameObject);
+		messagePopup = true;
+	}
+
+	void OnGUI()
+	{
+		if (messagePopup == true) 
+		{
+			GUI.Label(new Rect (Screen.width/4,Screen.height/2,200,20), "You have been killed !");
+			StopSpawning();
+		}
+	}
+
+	//fungsi untuk supaya berenti spawn - masih belum jalan
+	void StopSpawning()
+	{
+		GetComponent<Generate> ().CancelInvoke ("CreateObstacle");
+		//gen.CancelInvoke ("CreateObstacle");
 	}
 }
