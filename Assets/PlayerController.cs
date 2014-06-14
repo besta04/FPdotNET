@@ -13,8 +13,6 @@ public class PlayerController : MonoBehaviour {
 	// screen middle x
 	private float midX;
 
-	public bool messagePopup;
-
 	public Texture2D textureToDisplay;
 
 	private PlayerPhysics plPhysics;
