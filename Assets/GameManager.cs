@@ -10,31 +10,46 @@ public class GameManager : MonoBehaviour {
 	// speed scrolling speed
 	private static float scrollSpeed;
 
-	float startTime , timeCount;
+	private float startTime;
 
 	public static float getScrollSpeed()
 	{
 		return scrollSpeed;
 	}
-
+	private bool flagTabrak;
 	// Use this for initialization
 	void Start ()
 	{
+		SpawnPlayer ();
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+		if (flagTabrak != true) {
+			Debug.Log (getScore().ToString());
+		}
+	}
+
+	int getScore()
+	{
+		float timeCount;
+		timeCount = Time.time - startTime;
+		return (int)timeCount;
+	}
+
+
+	void SpawnPlayer()
+	{
+		// instantiate player di sini, dipanggil ketika start
 		scrollSpeed = 0.2f;
 		camera = GetComponent<GameCamera> ();
 		// call fungsi instantiate
 		startTime = Time.time;
 	}
 
-	// Update is called once per frame
-	void Update()
+	public void Nabrak()
 	{
-		timeCount = Time.time - startTime;
-		Debug.Log (((int)timeCount).ToString());
-	}
-
-	void SpawnPlayer()
-	{
-		// instantiate player di sini, dipanggil ketika start
+		flagTabrak = true;
 	}
 }
