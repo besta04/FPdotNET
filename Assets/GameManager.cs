@@ -18,19 +18,27 @@ public class GameManager : MonoBehaviour {
 	}
 	private bool flagTabrak;
 	private bool messageRetry;
+	private int score , highScore;
 	// Use this for initialization
 	void Start ()
 	{
 		SpawnPlayer ();
+		highScore = PlayerPrefs.GetInt ("highScore");
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
 		if (flagTabrak != true) {
-			Debug.Log (getScore().ToString());
+			score = getScore();
+			Debug.Log (score.ToString());
 		}
 		else {
+			if(score > highScore){
+				PlayerPrefs.SetInt("highScore" , score);
+				PlayerPrefs.Save();
+				Debug.Log ("HighScore");
+			}
 			messageRetry = true;
 		}
 	}
