@@ -34,17 +34,19 @@ public class Score : MonoBehaviour {
 	void Update () 
 	{
 		if (flagNabrak != true) {
-			guiText.text = "SCORE: " + this.getScore () + "\nHIGHSCORE: " + highScore;
+			guiText.text = "" + this.getScore ();
 			if(score > highScore)
 			{
-				guiText.text = "SCORE: " + this.getScore () + " \nHIGHSCORE: " + this.getScore();
+				guiText.text = "" + this.getScore ();
 			}
 		}
 		else {
-			if(score > highScore){
+			if(score > highScore)
+			{
 				PlayerPrefs.SetInt("highscore" , score);
 				PlayerPrefs.Save();
 			}
+			guiText.text = "SCORE: " + score + "\nHIGHSCORE: " + PlayerPrefs.GetInt ("highscore");
 		}
 	}
 }
