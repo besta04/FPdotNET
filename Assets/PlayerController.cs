@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		// move
-		plPhysics.MoveAmount (new Vector2(speed,0));
+		plPhysics.MoveAmount (new Vector2(speed,0f));
 
 		/*
 		// input touchscreen

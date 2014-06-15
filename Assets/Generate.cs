@@ -5,12 +5,12 @@ public class Generate : MonoBehaviour {
 
 	public GameObject capsule;
 	private bool flagTabrak;
-	public float posY = -6.236147f;
+	private float posY;
 
 	// Use this for initialization
 	void Start () {
 		InvokeRepeating ("CreateObstacle", 1f, 1.5f);
-
+		posY = 6.236147f;
 	}
 	
 	// Update is called once per frame

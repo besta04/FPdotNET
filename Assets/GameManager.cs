@@ -3,7 +3,6 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
-	private GameCamera camera;
 	// untuk akses atribut player, didrag aja lewat unitynya
 	private GameObject player;
 
@@ -12,17 +11,14 @@ public class GameManager : MonoBehaviour {
 
 	private float startTime;
 
-	public static float getScrollSpeed()
-	{
-		return scrollSpeed;
-	}
 	private bool flagTabrak;
 	private bool messageRetry;
 	private int score , highScore;
+
 	// Use this for initialization
 	void Start ()
 	{
-		SpawnPlayer ();
+		SpawnObstacle ();
 		highScore = PlayerPrefs.GetInt ("highScore");
 	}
 
@@ -43,6 +39,10 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+	public static float getScrollSpeed()
+	{
+		return scrollSpeed;
+	}
 
 	public int getScore()
 	{
@@ -51,12 +51,11 @@ public class GameManager : MonoBehaviour {
 		return (int)timeCount;
 	}
 
-
-	void SpawnPlayer()
+	void SpawnObstacle()
 	{
 		// instantiate player di sini, dipanggil ketika start
 		scrollSpeed = 0.2f;
-		camera = GetComponent<GameCamera> ();
+		//camera = GetComponent<GameCamera> ();
 		// call fungsi instantiate
 		startTime = Time.time;
 	}
