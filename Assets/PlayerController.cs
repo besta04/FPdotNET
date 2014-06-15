@@ -20,11 +20,15 @@ public class PlayerController : MonoBehaviour {
 	public Generate generate;
 
 	public GameManager gameManager;
+
+	public Score score;
+
 	void Start ()
 	{
 		plPhysics = GetComponent<PlayerPhysics> ();
 		generate = FindObjectOfType (typeof(Generate)) as Generate;
 		gameManager = FindObjectOfType (typeof(GameManager)) as GameManager;
+		score = FindObjectOfType (typeof(Score)) as Score;
 		midX = Screen.width / 2;
 		speed = 0;
 		acceleration = 0.1f;
@@ -117,5 +121,6 @@ public class PlayerController : MonoBehaviour {
 		Debug.Log("nabrak");
 		generate.Nabrak ();
 		gameManager.Nabrak ();
+		score.Nabrak ();
 	}
 }

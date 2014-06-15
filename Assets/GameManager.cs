@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 
-	int getScore()
+	public int getScore()
 	{
 		float timeCount;
 		timeCount = Time.time - startTime;
