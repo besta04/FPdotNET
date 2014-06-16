@@ -14,7 +14,7 @@ public class Generate : MonoBehaviour {
 		// initial speed
 		speed = 2f;
 		// spawn obstacle periodically
-		InvokeRepeating ("CreateObstacle", speed, speed);
+		Invoke("CreateObstacle", speed);
 		// y position spawn
 		posY = Camera.main.transform.position.y + Camera.main.orthographicSize;
 	}
@@ -43,7 +43,7 @@ public class Generate : MonoBehaviour {
 		instantiated.transform.localScale = new Vector3(randObst,randObst,11);
 		
 		CancelInvoke("CreateObstacle");
-		InvokeRepeating ("CreateObstacle", speed, speed);
+		Invoke("CreateObstacle", speed);
 	}
 
 	public void Nabrak()

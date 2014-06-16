@@ -27,8 +27,8 @@ public class ObstacleController : MonoBehaviour {
 		if( transform.position.y < bottomBorder )
 		{	
 			score.addScore();
-			// increase speed per 10 score
-			if( score.getScore()%10==0 )
+			// increase speed at score=5 and per 10 score
+			if( score.getScore()==5 || score.getScore()%10==0  )
 			{
 				generator.Faster();
 			}
