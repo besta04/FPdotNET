@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour {
 	public float maxSpeed;
 	// screen middle x
 	private float midX;
+	// character kemiringans
+	private int angle;
 
 	public Texture2D textureToDisplay;
 
@@ -31,8 +33,9 @@ public class PlayerController : MonoBehaviour {
 		score = FindObjectOfType (typeof(Score)) as Score;
 		midX = Screen.width / 2;
 		speed = 0;
-		acceleration = 0.1f;
+		acceleration = 0.015f;
 		maxSpeed = 0.3f;
+		angle = 0;
 	}
 
 	void Update()
@@ -46,18 +49,22 @@ public class PlayerController : MonoBehaviour {
 			if(x < midX)
 			{
 				speed -= acceleration;
+				if( angle<30 ) angle++;
 			}
 			// kanan
 			else
 			{
 				speed += acceleration;
+				if( angle>-30 ) angle--;
 			}
 		}
 		else
 		{
-			// reset speed
 			speed = 0;
+			if( angle<0 ) angle++;
+			else if( angle>0 ) angle--;
 		}
+		plPhysics.transform.rotation = Quaternion.Euler(new Vector3(0,0,angle));
 
 		// max speed check
 		if( speed > maxSpeed )

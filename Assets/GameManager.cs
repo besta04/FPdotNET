@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour {
 	void SpawnObstacle()
 	{
 		// instantiate player di sini, dipanggil ketika start
-		scrollSpeed = 0.2f;
+		scrollSpeed = 0.15f;
 		//camera = GetComponent<GameCamera> ();
 		// call fungsi instantiate
 		startTime = Time.time;
