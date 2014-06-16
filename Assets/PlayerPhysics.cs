@@ -2,7 +2,14 @@
 using System.Collections;
 
 public class PlayerPhysics : MonoBehaviour {
-	
+
+	private float playerPosY;
+
+	public void Start()
+	{
+		playerPosY = -3.720471f;
+	}
+
 	public void MoveAmount(Vector2 moveAmount)
 	{
 		// move player 
@@ -22,7 +29,7 @@ public class PlayerPhysics : MonoBehaviour {
 
 		// Here the position of the player is clamped into the boundaries
 		transform.position = (new Vector3 (Mathf.Clamp (transform.position.x, leftBorder, rightBorder), 
-		                                   Mathf.Clamp(transform.position.y, topBorder, bottomBorder),
+		                                   Mathf.Clamp(playerPosY, topBorder, bottomBorder),
 		                                   transform.position.z));
 
 		// buat fungsi kalo nabrak, panggil method spawn

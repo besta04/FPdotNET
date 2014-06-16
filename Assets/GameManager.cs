@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
-		SpawnObstacle ();
+		//SpawnObstacle ();
 		highScore = PlayerPrefs.GetInt ("highScore");
 	}
 
