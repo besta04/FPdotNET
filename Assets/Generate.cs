@@ -23,8 +23,9 @@ public class Generate : MonoBehaviour {
 	void CreateObstacle()
 	{
 		float rand = Random.Range(-2.5f,2.5f);
+		float randObst = Random.Range (3f, 6f);
 		var instantiated = Instantiate (capsule, new Vector3 (rand, posY, 11), Quaternion.identity) as GameObject;
-		instantiated.transform.localScale = new Vector3(1,1,11);
+		instantiated.transform.localScale = new Vector3(randObst,randObst,11);
 	}
 
 	public void Nabrak()
