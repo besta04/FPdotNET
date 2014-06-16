@@ -36,12 +36,12 @@ public class PlayerController : MonoBehaviour {
 		animator = transform.GetComponentInChildren<Animator> ();
 		die = false;
 		plPhysics = GetComponent<PlayerPhysics> ();
-		generate = FindObjectOfType (typeof(Generate)) as Generate;
+		generate = FindObjectOfType (typeof(GenerateBlack)) as GenerateBlack;
 		gameManager = FindObjectOfType (typeof(GameManager)) as GameManager;
 		score = FindObjectOfType (typeof(Score)) as Score;
 		midX = Screen.width / 2;
 		speed = 0;
-		acceleration = 0.015f;
+		acceleration = 0.016f;
 		maxSpeed = 0.3f;
 		angle = 0;
 		spriteRenderer = GetComponent<SpriteRenderer> ();
@@ -49,8 +49,11 @@ public class PlayerController : MonoBehaviour {
 
 	void Update()
 	{
+
+
+
 		// input mouse
-		if( Input.GetMouseButton(0) || Input.GetMouseButtonDown(0) )
+		if( die==false && (Input.GetMouseButton(0) || Input.GetMouseButtonDown(0))	 )
 		{
 			float x = Input.mousePosition.x;
 
@@ -84,64 +87,19 @@ public class PlayerController : MonoBehaviour {
 		{
 			speed = -maxSpeed;
 		}
-
-		if(die == true)
-		{
+		if( die==true ) {
 			animator.SetTrigger("Mati");
 		}
 
 		// move
 		plPhysics.MoveAmount (new Vector2(speed,0f));
 
-		/*
-		// input touchscreen
-		if(Input.touchCount > 0)
-		{
-			// touch count checking
-			for(var i = 0; i < Input.touchCount; ++i)
-			{
-				// get the last input touch
-				Touch touch = Input.GetTouch(i);
-				if(touch.phase == TouchPhase.Began)
-				{
-					// kiri
-					if(touch.position.x < midX)
-					{
-						speed -= acceleration;
-					}
-					// kanan
-					else
-					{
-						speed += acceleration;
-					}
-				}
-			}
-		}
-		else
-		{
-			// reset speed
-			speed = 0;
-		}
-
-		// max speed check
-		if( speed > maxSpeed )
-		{
-			speed = maxSpeed;
-		}
-		else if( speed < -maxSpeed )
-		{
-			speed = -maxSpeed;
-		}
-		
-		// move
-		plPhysics.MoveAmount (new Vector2(speed,0));
-		*/
 	}
 
 	void OnCollisionEnter2D(){
 		die = true;
 		Debug.Log("nabrak");
-		generate.Nabrak ();
+		(generate as GenerateBlack).Nabrak ();
 		gameManager.Nabrak ();
 		score.Nabrak ();
 	}
