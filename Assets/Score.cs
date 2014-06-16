@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Score : MonoBehaviour {
 
-	static int score = 0;
+	int score = 0;
 	static int highScore = 0;
 
 	private float startTime;
@@ -12,16 +12,18 @@ public class Score : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		startTime = Time.time;
+		score = 0;
 		highScore = PlayerPrefs.GetInt ("highscore");
 	}
 
-	int getScore()
+	public void setScore()
 	{
-		float timeCount;
-		timeCount = Time.time - startTime;
-		score = (int)timeCount;
-		return (int)timeCount;
+		score = score + 1;
+	}
+	
+	public int getScore()
+	{
+		return this.score;
 	}
 
 	public void Nabrak()
@@ -33,17 +35,11 @@ public class Score : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if (flagNabrak != true) {
-			guiText.text = "" + this.getScore ();
-			if(score > highScore)
-			{
-				guiText.text = "" + this.getScore ();
-			}
-		}
-		else {
-			if(score > highScore)
-			{
-				PlayerPrefs.SetInt("highscore" , score);
+		guiText.text = "SCORE: " + score;
+		if (flagNabrak == true) {
+			score = getScore();
+			if(score > highScore){
+				PlayerPrefs.SetInt("highScore" , score);
 				PlayerPrefs.Save();
 			}
 			guiText.text = "SCORE: " + score + "\nHIGHSCORE: " + PlayerPrefs.GetInt ("highscore");

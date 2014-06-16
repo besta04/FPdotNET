@@ -4,8 +4,10 @@ using System.Collections;
 [RequireComponent(typeof(GameManager))]
 public class ObstacleController : MonoBehaviour {
 
+	public Score score;
 	void Start ()
 	{
+		score = FindObjectOfType (typeof(Score)) as Score;
 	}
 	
 	// Update is called once per frame
@@ -23,6 +25,7 @@ public class ObstacleController : MonoBehaviour {
 		if( transform.position.y < bottomBorder )
 		{	
 			Destroy(this.gameObject);
+			score.setScore();
 		}
 	}
 }

@@ -18,23 +18,13 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
-		//SpawnObstacle ();
-		highScore = PlayerPrefs.GetInt ("highScore");
+		SpawnObstacle ();
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		if (flagTabrak != true) {
-			score = getScore();
-			Debug.Log (score.ToString());
-		}
-		else {
-			if(score > highScore){
-				PlayerPrefs.SetInt("highScore" , score);
-				PlayerPrefs.Save();
-				Debug.Log ("HighScore");
-			}
+		if (flagTabrak == true) {
 			messageRetry = true;
 		}
 	}
@@ -44,12 +34,7 @@ public class GameManager : MonoBehaviour {
 		return scrollSpeed;
 	}
 
-	public int getScore()
-	{
-		float timeCount;
-		timeCount = Time.time - startTime;
-		return (int)timeCount;
-	}
+
 
 	void SpawnObstacle()
 	{
