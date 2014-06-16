@@ -1,8 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Score.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\GenerateWhite.cs">
     <Files>
-      <File FileName="Assets\Score.cs" Line="44" Column="30" />
+      <File FileName="Assets\GenerateWhite.cs" Line="17" Column="44" />
+      <File FileName="Assets\Generate.cs" Line="8" Column="21" />
+      <File FileName="Assets\GenerateWhite.cs" Line="55" Column="1" />
+      <File FileName="Assets\ObstacleWhiteController.cs" Line="13" Column="3" />
+      <File FileName="Assets\GameManager.cs" Line="42" Column="23" />
+      <File FileName="Assets\Score.cs" Line="40" Column="2" />
+      <File FileName="Assets\HomeScript.cs" Line="18" Column="2" />
+      <File FileName="Assets\ObstacleController.cs" Line="19" Column="30" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

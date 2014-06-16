@@ -1,7 +1,7 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
-Project("{DC20B006-DA6F-658B-199B-74CFEE8A6ED6}") = "fpdotnet", "Assembly-CSharp.csproj", "{31405B30-5868-16A8-FABE-E02A44FD317E}"
+Project("{13C8F320-C22E-F5C6-5625-F30BD1CD6C3E}") = "FPdotNET", "Assembly-CSharp.csproj", "{6C676CE7-A321-9E5D-6228-19DA994ECF5C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,15 +9,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{31405B30-5868-16A8-FABE-E02A44FD317E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{31405B30-5868-16A8-FABE-E02A44FD317E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{31405B30-5868-16A8-FABE-E02A44FD317E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{31405B30-5868-16A8-FABE-E02A44FD317E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C676CE7-A321-9E5D-6228-19DA994ECF5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C676CE7-A321-9E5D-6228-19DA994ECF5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C676CE7-A321-9E5D-6228-19DA994ECF5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C676CE7-A321-9E5D-6228-19DA994ECF5C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																					GlobalSection(MonoDevelopProperties) = preSolution
+																									GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

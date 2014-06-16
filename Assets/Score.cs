@@ -36,7 +36,7 @@ public class Score : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		guiText.text = "SCORE: " + score;
+		guiText.text = "" + score;
 		if (flagNabrak == true) {
 			score = getScore();
 			if(score > highScore){
@@ -44,7 +44,7 @@ public class Score : MonoBehaviour {
 				PlayerPrefs.SetInt("highscore" , score);
 				PlayerPrefs.Save();
 			}
-			guiText.text = "SCORE: " + score + "\nHIGHSCORE: " + highScore;
+			guiText.text = "SCORE: " + score + "\nHIGHSCORE: " + highScore;       
 		}
 	}
 }
