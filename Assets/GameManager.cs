@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour {
 
 	// untuk akses atribut player, didrag aja lewat unitynya
 	private GameObject player;
+	private Texture play;
+	private Texture back;
 
 	// speed scrolling speed
 	private static float scrollSpeed;
@@ -18,6 +20,8 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
+		play = (Texture)Resources.Load("play");
+		back = (Texture)Resources.Load("back");
 		SpawnObstacle ();
 	}
 
@@ -64,7 +68,7 @@ public class GameManager : MonoBehaviour {
 				buttonWidth,
 				buttonHeight
 				),
-				"Retry!"
+				play
 				)
 				)
 			{
@@ -81,7 +85,7 @@ public class GameManager : MonoBehaviour {
 				buttonWidth,
 				buttonHeight
 				),
-				"Back to menu"
+				back
 				)
 				)
 			{

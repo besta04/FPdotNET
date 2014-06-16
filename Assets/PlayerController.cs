@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour {
 	// character kemiringans
 	private int angle;
 
+	private bool die;
+
 	public Texture2D textureToDisplay;
 
 	private PlayerPhysics plPhysics;
@@ -25,8 +27,14 @@ public class PlayerController : MonoBehaviour {
 
 	public Score score;
 
+	public Sprite dieBerry;
+	private SpriteRenderer spriteRenderer;
+	private Animator animator;
+
 	void Start ()
 	{
+		animator = transform.GetComponentInChildren<Animator> ();
+		die = false;
 		plPhysics = GetComponent<PlayerPhysics> ();
 		generate = FindObjectOfType (typeof(Generate)) as Generate;
 		gameManager = FindObjectOfType (typeof(GameManager)) as GameManager;
@@ -36,6 +44,7 @@ public class PlayerController : MonoBehaviour {
 		acceleration = 0.015f;
 		maxSpeed = 0.3f;
 		angle = 0;
+		spriteRenderer = GetComponent<SpriteRenderer> ();
 	}
 
 	void Update()
@@ -74,6 +83,11 @@ public class PlayerController : MonoBehaviour {
 		else if( speed < -maxSpeed )
 		{
 			speed = -maxSpeed;
+		}
+
+		if(die == true)
+		{
+			animator.SetTrigger("Mati");
 		}
 
 		// move
@@ -125,6 +139,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(){
+		die = true;
 		Debug.Log("nabrak");
 		generate.Nabrak ();
 		gameManager.Nabrak ();
